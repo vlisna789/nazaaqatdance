@@ -14,18 +14,36 @@
 
 <body>
   <p style="text-align:center;"><font face = "verdana"> Welcome to Nazaaqat's Choreography Page</font></p>
-
-<center><video src="Nagada part 1.mp4" poster="nagpart1.png" width="640" height="400" controls preload></video>
-    <source src="Nagada part1.mp4"></source> 
-    <source src="video.webm"></source> 
-</video> </center>
-<p></p>
-<center><video src="Video.MOV" poster="chamchampart1.png" width="640" height="400" controls preload></video>
-    <source src="Video.MOV"></source> 
-    <source src="video.webm"></source> 
-</video></center>
-
   
+  <div class="w3-content w3-display-container">
+  <video class="mySlides" src="Nagada part 1.mp4" poster="nagpart1.png" width="640" height="400" controls preload></video>>
+  <video class="mySlides" src="Video.MOV" poster="chamchampart1.png" width="640" height="400" controls preload></video>
+
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+
+ 
 </body>
 </html>
 
