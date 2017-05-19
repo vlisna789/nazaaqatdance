@@ -13,17 +13,26 @@
 </head>
 
 <body>
-  <p style="text-align:center;"><font face = "verdana"> Welcome to Nazaaqat's Choreography Page</font></p>
-  
-  <center><div class="w3-content w3-display-container">
-  <video class="mySlides" src="Nagada part 1.mp4" poster="nagpart1.png" width="640" height="400" controls preload></video>
-  <video class="mySlides" src="Video.MOV" poster="chamchampart1.png" width="640" height="400" controls preload></video>
+  <p style="text-align:center;"><font face = "verdana"> Welcome to Nazaaqat's Choreography Page</font></p>  
+  <p style="text-align:center;"><font face = "verdana"> press the images below to search</font></p>
 
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div> </center>
-  
-  <p style="text-align:center;"><font face = "verdana"> press the arrows above to search</font></p>
+<style>
+.mySlides {display:none}
+.demo {cursor:pointer}
+</style>
+<body>
+<div class="w3-content" style="max-width:1200px">
+   <video class="mySlides" src="Nagada part 1.mp4" poster="nagpart1.png" width="640" height="400" controls preload></video>
+   <video class="mySlides" src="Video.MOV" poster="chamchampart1.png" width="640" height="400" controls preload></video>
+  <div class="w3-row-padding w3-section">
+    <div class="w3-col s4">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="nagpart1.png" style="width:100%" onclick="currentDiv(1)">
+    </div>
+    <div class="w3-col s4">
+      <img class="demo w3-opacity w3-hover-opacity-off" src="chamchampart1.png" style="width:100%" onclick="currentDiv(2)">
+    </div>
+  </div>
+</div>
 
 <script>
 var slideIndex = 1;
@@ -33,19 +42,27 @@ function plusDivs(n) {
   showDivs(slideIndex += n);
 }
 
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}    
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
   if (n < 1) {slideIndex = x.length}
   for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
+     x[i].style.display = "none";
   }
-  x[slideIndex-1].style.display = "block";  
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
 }
 </script>
 
- 
+
 </body>
-</html>
 
